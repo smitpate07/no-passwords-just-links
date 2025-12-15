@@ -17,4 +17,11 @@ Instead of exposing sensitive data in email bodies, presigned URLs allow recipie
 
 ## Flow Steps ##
 
-1. User uploads 
+1. User upload file to AWS S3 bucket.
+2. AWS S3 bucket send S3 events to AWS EventBridge.
+3. Based on the rules and target set in AWS Eventbridge notification is trigerred.
+4. AWS EventBridge notifies N8N Webook of file arrival in AWS S3.
+5. N8N Webhook trigger HTTP request.
+6. N8N HTTP node sends request to AWS Lambda to generate Presigned URL with expiration time set for 1hr. AWS Lambda exposes Presigned URL to AWS API Gateway. AWS API Gateway reverts Presigend URL to N8N HTTP Node.
+7. URL Generation timestamp, Expiration and URL links are set using N8N Edit Field node. Email Notification is send to the user. Generated URL Link, creation time and expiration time is saved into MongoDB database.
+   
