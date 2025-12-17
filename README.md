@@ -24,7 +24,13 @@ Instead of exposing sensitive data in email bodies, presigned URLs allow recipie
 5. N8N Webhook trigger HTTP request.
 6. N8N HTTP node sends request to AWS Lambda to generate Presigned URL with expiration time set for 1hr.The Lamda function code can be found [here](https://github.com/smitpate07/no-passwords-just-links/blob/main/lambda_function.py). AWS Lambda exposes generated Presigned URL to AWS API Gateway. AWS API Gateway reverts Presigend URL to N8N HTTP Node.
 7. URL Generation timestamp, Expiration and URL links are set using N8N Edit Field node. Email Notification is send to the user. Generated URL Link, creation time and expiration time is saved into MongoDB database.
-   
+
+## Why N8N Webook, HTTP request ? ##
+
+- The **Webhook Trigger** node allows you to start a workflow when an HTTP request is made to a specified URL. This is useful for triggering actions in your workflow based on external events.
+  
+- The **HTTP Request** node is used to send HTTP requests to external services. It's a way to interact with APIs and web services within your workflow. You can use it to make GET, POST, PUT, DELETE, or other types of requests to access data from external APIs or trigger actions in third-party services. 
+
 ## Screenshot of data in MongoDB  ##
 <img width="1018" height="229" alt="image" src="https://github.com/user-attachments/assets/02bc9cbe-50bd-418b-9c62-0e0059284b0c" />
 
