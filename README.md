@@ -11,7 +11,11 @@ Instead of exposing sensitive data in email bodies, presigned URLs allow recipie
 
 **Best Practice:** Avoid the common security risk of sharing passwords or private data through unencrypted email channels.
 
-## High Level flow ##
+## High Level Flow ##
+<img width="2752" height="1536" alt="unnamed_1" src="https://github.com/user-attachments/assets/1701e3f7-ba92-4f03-b445-4393c6b3a7af" />
+
+
+## Technical Flow ##
 <img width="903" height="326" alt="Overall_architecture" src="https://github.com/user-attachments/assets/8ca3fce3-68c7-4720-9c23-47669009b120" />
 
 
